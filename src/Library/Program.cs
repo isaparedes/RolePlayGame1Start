@@ -1,4 +1,4 @@
-﻿namespace Library;
+namespace Library;
 
     class Program
     {
@@ -8,30 +8,27 @@
             Arma espada = new Arma("Espada de Plata", 50);
             Armadura armadura = new Armadura("Armadura de Cota de Malla", 100);
             
-            // Crear personajes
+            //Crear personajes
             Personaje mago = new Mago("Gandalf");
             Personaje elfo = new Elfo("Legolas");
             Personaje enano = new Enano("Gimli");
-            Personaje E = new Enano("AA");
+            
             // Mostrar información inicial
             Console.WriteLine("Información inicial:");
             mago.MostrarInfo();
             elfo.MostrarInfo();
             enano.MostrarInfo();
-            E.MostrarInfo();
 
             // Equipar elementos
             mago.EquiparArma(espada);
             elfo.EquiparArmadura(armadura);
             enano.EquiparArma(espada);
-            E.EquiparArma(espada);
 
             // Mostrar información después de equipar
             Console.WriteLine("\nInformación después de equipar elementos:");
             mago.MostrarInfo();
             elfo.MostrarInfo();
             enano.MostrarInfo();
-            E.MostrarInfo();
 
             // Simular combate
             Console.WriteLine("\nInicio del combate:");
@@ -50,7 +47,6 @@
             mago.MostrarInfo();
             elfo.MostrarInfo();
             enano.MostrarInfo();
-            E.MostrarInfo();
 
             // Desequipar armas y armaduras
             Console.WriteLine("\nDespués de desequipar los elementos:");
@@ -58,13 +54,11 @@
             mago.QuitarArmadura();
             elfo.QuitarArmadura();
             enano.QuitarArma();
-            E.QuitarArma();
 
             // Mostrar información final después de desequipar
             Console.WriteLine("\nInformación después de desequipar:");
             mago.MostrarInfo();
             elfo.MostrarInfo();
             enano.MostrarInfo();
-            E.MostrarInfo();
         }
     }
