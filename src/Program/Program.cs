@@ -1,70 +1,75 @@
-﻿namespace Library;
+﻿using System;
+using Library;
 
-    class Program
+public class Program
+{
+    public static void Main()
     {
-        static void Main(string[] args)
-        {
-            //Crear armas y armaduras 
-            Arma espada = new Arma("Espada de Plata", 50);
-            Armadura armadura = new Armadura("Armadura de Cota de Malla", 100);
-            
-            // Crear personajes
-            Personaje mago = new Mago("Gandalf");
-            Personaje elfo = new Elfo("Legolas");
-            Personaje enano = new Enano("Gimli");
-            Personaje E = new Enano("AA");
-            // Mostrar información inicial
-            Console.WriteLine("Información inicial:");
-            mago.MostrarInfo();
-            elfo.MostrarInfo();
-            enano.MostrarInfo();
-            E.MostrarInfo();
+        // Crear personajes
+        Mago vanesa = new Mago("Vanesa");
+        Elfo victoria = new Elfo("Victoria");
+        Enano isabela = new Enano("Isabela");
+        Elfo ulises = new Elfo("Ulises");
+        
+        // Mostrar vida base y ataque inicial de los personajes
+        Console.WriteLine($"Vida base de Ulises: {ulises.GetVidaBase()}");
+        Console.WriteLine($"Ataque de Victoria: {victoria.GetAtaque()}");
 
-            // Equipar elementos
-            mago.EquiparArma(espada);
-            elfo.EquiparArmadura(armadura);
-            enano.EquiparArma(espada);
-            E.EquiparArma(espada);
+        // Ataques
+        vanesa.AtacarElfo(victoria);
+        victoria.AtacarEnano(isabela);
+        isabela.AtacarElfo(ulises);
+        ulises.AtacarMago(vanesa);
+        victoria.AtacarElfo(ulises);
+        // Curaciones
+        victoria.Curar();
+        isabela.Curar();
+        ulises.Curar();
+        vanesa.Curar();
 
-            // Mostrar información después de equipar
-            Console.WriteLine("\nInformación después de equipar elementos:");
-            mago.MostrarInfo();
-            elfo.MostrarInfo();
-            enano.MostrarInfo();
-            E.MostrarInfo();
+        // Crear elementos
+        Elemento espada = new Elemento("Espada", 30, 0);
+        Elemento tacones = new Elemento("Tacones", 0, 5); 
+        Elemento hongoMagico = new Elemento("Hongo mágico", 20, 0);
+        Elemento gorro = new Elemento("Gorro", 0, 5); 
+        Elemento capa = new Elemento("Capa", 0, 10); 
+        
+        // Asignar elementos y mostrar efectos en la vida máxima
+        Console.WriteLine("\nAsignar elementos:");
+        vanesa.AgregarElemento(capa); 
+        victoria.AgregarElemento(hongoMagico);
+        victoria.AgregarElemento(gorro); 
+        isabela.AgregarElemento(espada);
+        isabela.AgregarElemento(tacones); 
+        ulises.AgregarElemento(tacones); 
+        ulises.AgregarElemento(hongoMagico);
 
-            // Simular combate
-            Console.WriteLine("\nInicio del combate:");
-            Combate combate = new Combate();
-            combate.Atacar(mago, elfo);
-            combate.Atacar(elfo, mago);
+        // Intentar agregar un elemento ya existente
+        Console.WriteLine("\nIntentar agregar elemento existente:");
+        vanesa.AgregarElemento(capa); 
 
-            // Curación
-            Console.WriteLine("\nCuración:");
-            Curacion curacion = new Curacion();
-            curacion.Curar(mago, 50);
-            curacion.Curar(elfo, 50);
+        // Quitar elementos y mostrar efectos en la vida máxima
+        Console.WriteLine("\nQuitar elementos:");
+        victoria.QuitarElemento(hongoMagico); 
+        victoria.QuitarElemento(hongoMagico); 
 
-            // Mostrar información final de los personajes
-            Console.WriteLine("\nInformación final:");
-            mago.MostrarInfo();
-            elfo.MostrarInfo();
-            enano.MostrarInfo();
-            E.MostrarInfo();
+        // Crear hechizo
+        Hechizo bolaDeFuego = new Hechizo("Bola de fuego", 50);
+        
+        // Asignar hechizo
+        Console.WriteLine("\nAsignar hechizo:");
+        vanesa.AgregarHechizo(bolaDeFuego);
 
-            // Desequipar armas y armaduras
-            Console.WriteLine("\nDespués de desequipar los elementos:");
-            mago.QuitarArma();
-            mago.QuitarArmadura();
-            elfo.QuitarArmadura();
-            enano.QuitarArma();
-            E.QuitarArma();
+        // Intentar agregar un hechizo ya existente
+        Console.WriteLine("\nIntentar agregar hechizo existente:");
+        vanesa.AgregarHechizo(bolaDeFuego); 
 
-            // Mostrar información final después de desequipar
-            Console.WriteLine("\nInformación después de desequipar:");
-            mago.MostrarInfo();
-            elfo.MostrarInfo();
-            enano.MostrarInfo();
-            E.MostrarInfo();
-        }
+        // Quitar hechizo
+        Console.WriteLine("\nQuitar hechizo:");
+        vanesa.QuitarHechizo(bolaDeFuego);
+
+        // Intentar quitar un hechizo ya inexistente
+        Console.WriteLine("\nIntentar quitar hechizo inexistente:");
+        vanesa.QuitarHechizo(bolaDeFuego); 
     }
+}
