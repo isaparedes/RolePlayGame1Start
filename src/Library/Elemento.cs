@@ -3,19 +3,26 @@ namespace Library;
 public class Elemento
 {
     private string nombre;
+    private int ataque;
+    private int defensa;
     public string GetNombre()
     {
         return this.nombre;
     }
-    private int dano;
-    public int GetDano()
+    public int GetAtaque()
     {
-        return this.dano;
+        return this.ataque;
     }
 
-    public Elemento(string nombre, int dano)
+    public int GetDefensa()
+    {
+        return this.defensa;
+    }
+
+    public Elemento(string nombre, int ataque, int defensa)
     {
         this.nombre = nombre;
-        this.dano = dano;
+        this.ataque = ataque;
+        this.defensa = defensa;
     }
 }

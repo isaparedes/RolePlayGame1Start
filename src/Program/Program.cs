@@ -36,11 +36,11 @@ public class Program
         isabela.Curar();
         
         //Crear elementos
-        Elemento espada = new Elemento("Espada", 30);
-        Elemento tacones = new Elemento("Tacones", 0);
-        Elemento hongoMagico = new Elemento("Hongo mágico", 20);
-        Elemento gorro = new Elemento("Gorro", 0);
-        Elemento capa = new Elemento("Capa", 0);
+        Elemento espada = new Elemento("Espada", 30, 20);
+        Elemento tacones = new Elemento("Tacones", 0, 0);
+        Elemento hongoMagico = new Elemento("Hongo mágico", 20, 0);
+        Elemento gorro = new Elemento("Gorro", 0, 0);
+        Elemento capa = new Elemento("Capa", 0, 30);
         
         //Asignar elemento
         vanesa.AgregarElemento(capa); 

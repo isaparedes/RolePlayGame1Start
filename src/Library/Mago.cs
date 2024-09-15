@@ -7,7 +7,7 @@ public class Mago
     private int vidaBase = 800;
     private int ataque = 200;
     private ArrayList listaElementos = new ArrayList();
-    private ArrayList listaHechizos = new ArrayList ();
+    private ArrayList libroDeHechizos = new ArrayList ();
     public Mago(string nombre)
     {
         this.nombre = nombre;
@@ -33,12 +33,12 @@ public class Mago
     public void AgregarHechizo(Hechizo hechizo)
     {
         Console.WriteLine("\nADQUIRIR HECHIZO:");
-        if (hechizo != null && !this.listaHechizos.Contains(hechizo))
+        if (hechizo != null && !this.libroDeHechizos.Contains(hechizo))
         {
-            this.listaHechizos.Add(hechizo);
-            this.ataque += hechizo.GetDano();
+            this.libroDeHechizos.Add(hechizo);
+            this.ataque += hechizo.GetAtaque();
             Console.WriteLine($"{this.nombre} ha adquirido el hechizo ¨{hechizo.GetNombre()}¨.");
-            Console.WriteLine($"Su ataque ha sumado {hechizo.GetDano()} puntos. Ahora es de {this.ataque} puntos.");
+            Console.WriteLine($"Su ataque ha sumado {hechizo.GetAtaque()} puntos. Ahora es de {this.ataque} puntos.");
         }
         else
         {
@@ -49,12 +49,12 @@ public class Mago
     public void QuitarHechizo(Hechizo hechizo)
     {
         Console.WriteLine("\nDESECHAR HECHIZO:");
-        if (hechizo != null && this.listaHechizos.Contains(hechizo))
+        if (hechizo != null && this.libroDeHechizos.Contains(hechizo))
         {
-            this.listaHechizos.Remove(hechizo);
-            this.ataque -= hechizo.GetDano();
+            this.libroDeHechizos.Remove(hechizo);
+            this.ataque -= hechizo.GetAtaque();
             Console.WriteLine($"{this.nombre} se ha desecho del hechizo ¨{hechizo.GetNombre()}¨.");
-            Console.WriteLine($"No es posible desechar. Su ataque ha restado {hechizo.GetDano()} puntos. Ahora es de {this.ataque} puntos.");
+            Console.WriteLine($"Su ataque ha restado {hechizo.GetAtaque()} puntos. Ahora es de {this.ataque} puntos.");
         }
         else
         {
@@ -68,9 +68,11 @@ public class Mago
         if (elemento != null && !this.listaElementos.Contains(elemento))
         {
             this.listaElementos.Add(elemento);
-            this.ataque += elemento.GetDano();
+            this.ataque += elemento.GetAtaque();
+            this.vidaActual += elemento.GetDefensa();
             Console.WriteLine($"{this.nombre} ha adquirido el elemento ¨{elemento.GetNombre()}¨.");
-            Console.Write($"Su ataque ha sumado {elemento.GetDano()} puntos. Ahora es de {this.ataque} puntos.");
+            Console.WriteLine($"Su vida actual ha sumado {elemento.GetDefensa()}. Ahora es de {this.vidaActual}.");
+            Console.Write($"Su ataque ha sumado {elemento.GetAtaque()} puntos. Ahora es de {this.ataque} puntos.");
         }
         else
         {
@@ -83,9 +85,11 @@ public class Mago
         if (elemento != null && this.listaElementos.Contains(elemento))
         {
             this.listaElementos.Remove(elemento);
-            this.ataque -= elemento.GetDano();
+            this.ataque -= elemento.GetAtaque();
+            this.vidaActual -= elemento.GetDefensa();
             Console.WriteLine($"{this.nombre} se ha desecho del elemento ¨{elemento.GetNombre()}¨.");
-            Console.Write($"Su ataque ha restado {elemento.GetDano()} puntos. Ahora es de {this.ataque} puntos.");
+            Console.WriteLine($"Su vida actual ha restado {elemento.GetDefensa()}. Ahora es de {this.vidaActual}.");
+            Console.Write($"Su ataque ha restado {elemento.GetAtaque()} puntos. Ahora es de {this.ataque} puntos.");
         }
         else
         {

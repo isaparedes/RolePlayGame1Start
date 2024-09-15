@@ -3,20 +3,19 @@ namespace Library;
 public class Hechizo
 {
     private string nombre;
-
+    private int ataque;
     public string GetNombre()
     {
         return this.nombre;
     }
-    private int dano;
-    public int GetDano()
+    public int GetAtaque()
     {
-        return this.dano;
+        return this.ataque;
     }
 
-    public Hechizo(string nombre, int dano)
+    public Hechizo(string nombre, int ataque)
     {
         this.nombre = nombre;
-        this.dano = dano;
+        this.ataque = ataque;
     }
 }
