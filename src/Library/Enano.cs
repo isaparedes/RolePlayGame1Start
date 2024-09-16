@@ -38,7 +38,7 @@ public class Enano
             this.ataque += elemento.GetAtaque();
             this.vidaActual += elemento.GetDefensa();
             Console.WriteLine($"{this.nombre} ha adquirido el elemento ¨{elemento.GetNombre()}¨.");
-            Console.WriteLine($"Su vida actual ha sumado {elemento.GetDefensa()}. Ahora es de {this.vidaActual}.");
+            Console.WriteLine($"Su vida actual ha sumado {elemento.GetDefensa()} puntos. Ahora es de {this.vidaActual} puntos.");
             Console.WriteLine($"Su ataque ha sumado {elemento.GetAtaque()} puntos. Ahora es de {this.ataque} puntos.");
         }
         else
@@ -56,7 +56,7 @@ public class Enano
             this.ataque -= elemento.GetAtaque();
             this.vidaActual -= elemento.GetDefensa();
             Console.WriteLine($"{this.nombre} se ha desecho del elemento ¨{elemento.GetNombre()}¨.");
-            Console.WriteLine($"Su vida actual ha restado {elemento.GetDefensa()}. Ahora es de {this.vidaActual}.");
+            Console.WriteLine($"Su vida actual ha restado {elemento.GetDefensa()} puntos. Ahora es de {this.vidaActual} puntos.");
             Console.WriteLine($"Su ataque ha restado {elemento.GetAtaque()} puntos. Ahora es de {this.ataque} puntos.");
         }
         else
